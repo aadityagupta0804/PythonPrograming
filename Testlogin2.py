@@ -77,7 +77,7 @@ class USERS:
             print("now user 2:")
             user2, pass2 = USERS().login()
             score2 = USERS().dicegame()
-        
+        ### you dont need to assign u1 = USERS().uwin(user1, score1) as you are not returning anything in uwin
         if score1 > score2:
             USERS().uwin(user1, score1)
             
@@ -114,7 +114,14 @@ class USERS:
                 x = False
         return u1dice, u2dice
 
-    
+    ### i am adding the default number of winner = 5 but you can get any number by calling USERS().get_first_five_winners(numberOfWinner='10')
+    """
+     first i created a dict out of your entry in winners.txt. it is easy to sort that way otherwise 
+     you have to go through each entry and do for loop to sort. 
+     then i used sorted api to sort the winnerDict and added reverse =True to make it in descending order.
+     once i have ordered list then i took first 5 entry from the dict and put it in the new file highscores.txt
+     
+    """
     def get_first_five_winners(self, numberOfWinner= "5"):
         print("list of first "+ numberOfWinner +" winners")
         winnerDict = {}
